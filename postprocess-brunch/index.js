@@ -2,6 +2,9 @@ var fs   = require("fs")
 var path = require("path")
 var zlib = require("zlib")
 
+var stringify = require("json-stringify-pretty-compact")
+var convert   = require("convert-source-map-simple")
+
 function Postprocess(config) {
   this.config = config
 }
@@ -15,6 +18,10 @@ Postprocess.prototype.onCompile = function(files) {
     var map = JSON.parse(fs.readFileSync(filePath + ".map").toString())
     delete map.sourcesContent
     fs.writeFileSync(filePath + ".map", JSON.stringify(map))
+
+    var simpleMap = convert(map)
+    fs.writeFileSync(filePath + ".simple.map", JSON.stringify(simpleMap))
+    fs.writeFileSync(filePath + ".simple.pretty.map", stringify(simpleMap))
   })
 
   var public = this.config.paths.public

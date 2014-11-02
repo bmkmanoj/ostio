@@ -10,7 +10,43 @@ large real-life code base with source maps.
 The public/ directory will then contain CSS and JavaScript files, with source
 map files, in uncompressed, minified, gzipped and minified + gzipped versions.
 
+This particular branch also outputs an alternate, “simple”, format of source
+maps, using this [gist]. This comes at the cost of the source maps being larger:
+
+    8,0K  app.css.map
+    4,0K  app.css.map.gz
+    28K   app.css.simple.map
+    8,0K  app.css.simple.map.gz
+
+    8,0K  app.min.css.map
+    4,0K  app.min.css.map.gz
+    28K   app.min.css.simple.map
+    8,0K  app.min.css.simple.map.gz
+
+    32K   app.js.map
+    8,0K  app.js.map.gz
+    100K  app.js.simple.map
+    24K   app.js.simple.map.gz
+
+    48K   app.min.js.map
+    8,0K  app.min.js.map.gz
+    152K  app.min.js.simple.map
+    28K   app.min.js.simple.map.gz
+
+    40K   vendor.js.map
+    4,0K  vendor.js.map.gz
+    184K  vendor.js.simple.map
+    44K   vendor.js.simple.map.gz
+
+    116K  vendor.min.js.map
+    20K   vendor.min.js.map.gz
+    392K  vendor.min.js.simple.map
+    68K   vendor.min.js.simple.map.gz
+
+Run `npm install postprocess-brunch` if the `*.simple.*` files do not show up.
+
 [paulmillr/ostio]: https://github.com/paulmillr/ostio
+[gist]: https://gist.github.com/lydell/857cba1b00cf8dd3c169
 
 # License
 The MIT License (MIT)

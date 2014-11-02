@@ -1,4 +1,8 @@
 {
   "name": "postprocess-brunch",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "dependencies": {
+    "json-stringify-pretty-compact": "^1.0.0",
+    "convert-source-map-simple": "git://gist.github.com/857cba1b00cf8dd3c169.git"
+  }
 }
