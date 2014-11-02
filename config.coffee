@@ -3,13 +3,31 @@ exports.config =
   files:
     javascripts:
       joinTo:
-        'javascripts/app.js': /^app/
-        'javascripts/vendor.js': /^(bower_components|vendor)/
+        'app.js': /^app/
+        'vendor.js': /^(bower_components|vendor)/
 
     stylesheets:
-      joinTo: 'stylesheets/app.css'
+      joinTo: 'app.css'
       order:
         after: ['vendor/styles/helpers.css']
 
     templates:
-      joinTo: 'javascripts/app.js'
+      joinTo: 'app.js'
+
+  overrides:
+    production:
+      sourceMaps: on
+
+      files:
+        javascripts:
+          joinTo:
+            'app.min.js': /^app/
+            'vendor.min.js': /^(bower_components|vendor)/
+
+        stylesheets:
+          joinTo: 'app.min.css'
+          order:
+            after: ['vendor/styles/helpers.css']
+
+        templates:
+          joinTo: 'app.min.js'
